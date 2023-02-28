@@ -106,3 +106,12 @@ def _bindgen_clang_repositories():
         build_file_content = _CLANG_BUILD_FILE.format(suffix = "dylib"),
         workspace_file_content = _COMMON_WORKSPACE.format("bindgen_clang_osx"),
     )
+
+    maybe(
+        http_archive,
+        name = "bindgen_clang_arm64_osx",
+        urls = ["https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/clang+llvm-15.0.7-arm64-apple-darwin22.0.tar.xz"],
+        strip_prefix = "clang+llvm-15.0.7-arm64-apple-darwin22.0",
+        build_file_content = _CLANG_BUILD_FILE.format(suffix = "dylib"),
+        workspace_file_content = _COMMON_WORKSPACE.format("bindgen_clang_arm64_osx"),
+    )
